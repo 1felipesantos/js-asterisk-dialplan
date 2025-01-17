@@ -1,25 +1,27 @@
-# Asterisk-Dialplan
+# js-asterisk-dialplan
 
-O projeto Asterisk-Dialplan foi criado por Felipe Santos, com o intuito de facilitar o roteamento de chamadas em plataformas Asterisk. O projeto disponibiliza uma API
-para roteamento das chamadas, possibilitando a customização de parâmetros, como o número de destino, por exemplo.
+The js-ASterisk-Dialplan project was created by Felipe Santos, with the aim of facilitating call routing on Asterisk platforms. The project provides an API
+for routing calls, enabling the customization of parameters, such as the destination number, for example.
 
-## Instalação
+## Installation
 
-Esse projeto utiliza .env e devido a isso, torna-se necessário a criação do referido arquivo na pasta raíz. O arquivo deverá ter as seguintes variáveis
+This project uses .env and because of this, it is necessary to create that file in the root folder. The file must have the following variables
 
+```bash
 DB_HOST=IP OU NOME DO SEU HOST
 DB_USER=USUARIO DO SEU HOST
 DB_PASSWORD=SENHA DO SEU HOST
 PORT=PORTA QUE O PROJETO IRÁ RODAR
 DB_DATABASE=asterisk_routing
+```
 
-Para instalação, necessário instalar as dependências do projeto com o comando abaixo:
+For installation, you need to install the project dependencies with the command below:
 
 ```bash
 npm install
 ```
 
-Também é necessário criar a base de dados que será utilizada:
+It is also necessary to create the database that will be used:
 
 ```bash
 
@@ -40,37 +42,41 @@ AUTO_INCREMENT=5
 ;
 ```
 
-## Execução
+## Running the project
 
-Para executar o projeto, utilize o comando abaixo, na raíz do projeto
+To run the project, use the command below, in the project root
 
 ```bash
 node app.js
 ```
 
-## Estrutura do Projeto
+## Project Structure
 
 ```bash
 asterisk-dialplan/
 │
 ├── config/
-│   └── database.js     # Arquivo de configuração de conexão com banco de dados. A conexão com BD é realizada para verificar a tabela de roteamento
+│   └── database.js    # Database connection configuration file. Connection to DB is performed to check the routing table
 │
 ├── src/
 │   ├── handlers/
-│   │   └── agiHandler.js    # Manipulador de requisições AGI
+│   │   └── agiHandler.js    # AGI request handler
 │   │
 │   └── routes/
-│       └── routeHandler.js  # Lógica de roteamento das chamadas
+│       └── routeHandler.js  # Call routing logic
 │
-├── .env            # Variáveis de ambiente. Os dados sobre o arquivo estão descritos abaixo
-├── .gitignore      # Arquivo gitignore para ignorar arquivos irrelevantes para versionamento
-├── package.json    # Dependências do projeto
-├── README.md       # Arquivo com os detalhes necessários para executar o projeto, bem como dar manutenção caso necessário
-└── app.js          # Arquivo principal que inicializa o servidor AGI
+├── .env            # Environment variables. Data about the file is described below
+├── .gitignore      # Gitignore file to ignore irrelevant files for versioning
+├── package.json    # Project dependencies
+├── README.md       # File with the details necessary to execute the project, as well as provide maintenance if necessary
+└── app.js          # Main file that initializes the AGI server
 ```
 
-## Exemplos de dados
+## Data Example
 
+```bash
 trunk_name: from-teste-api
 regex:      .*319[1-9][0-9]{7}
+```
+
+LICENSE: MIT
